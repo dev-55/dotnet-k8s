@@ -1,0 +1,3 @@
+@ECHO OFF
+ECHO Deploying to Kubernetes...
+kubectl apply -f weather-app.yml

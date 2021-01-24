@@ -1,0 +1,3 @@
+@ECHO OFF
+ECHO Building All...
+.\Api.bat 

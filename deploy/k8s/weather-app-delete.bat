@@ -1,0 +1,3 @@
+@ECHO OFF
+ECHO Deleting Kubernetes Deployment...
+kubectl delete deployment weather-app-deployment

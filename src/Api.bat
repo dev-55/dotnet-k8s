@@ -1,0 +1,3 @@
+@ECHO OFF
+ECHO Building API Image...
+docker build -t weather-app -f Api.Dockerfile .
