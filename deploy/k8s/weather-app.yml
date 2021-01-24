@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: weather-app-svc
+  labels:
+    app: weather-app
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: weather-app
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weather-app-deployment
+  labels:
+    app: weather-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weather-app
+  template:
+    metadata:
+      labels:
+        app: weather-app
+    spec:
+      containers:
+        - name: weather-app-ctr
+          image: weather-app
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
+---
+ # kubectl apply -f k8s/weather-app.yml 
